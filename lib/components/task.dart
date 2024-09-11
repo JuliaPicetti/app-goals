@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_1/components/difficulty.dart';
+import 'package:flutter_1/data/task_dao.dart';
 
 class Task extends StatefulWidget {
   //criou uma classe
@@ -83,6 +84,14 @@ class _TaskState extends State<Task> {
                       height: 52,
                       width: 52,
                       child: ElevatedButton(
+                          onLongPress: () {
+                            TaskDao().delete(widget.nome);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Tarefa excluída!'),
+                              ),
+                            );
+                          },
                           onPressed: () {
                             setState(() {
                               //função que diz quem esta mudando, no caso o nível

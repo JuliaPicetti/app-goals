@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_1/components/task.dart';
 import 'package:flutter_1/data/task_dao.dart';
 import 'package:flutter_1/data/task_inherited.dart';
+import 'package:flutter_1/screens/initial_screen.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key, required this.taskContext});
@@ -152,7 +153,12 @@ class _FormScreenState extends State<FormScreen> {
                             content: Text('Nova Tarefa Salva!'),
                           ),
                         );
-                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (contextNew) => InitialScreen(),
+                          ),
+                        );
                       }
                     },
                     child: Text(
